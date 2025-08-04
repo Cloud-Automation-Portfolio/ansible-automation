@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Ansible artifacts
+*.retry
+*.tar.gz
+
+# Environment files
+.env
+
+# Vagrant
+.vagrant/

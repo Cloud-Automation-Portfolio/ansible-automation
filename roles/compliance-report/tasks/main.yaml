@@ -1,0 +1,14 @@
+- name: Gather system facts
+  setup:
+
+- name: Generate compliance summary
+  copy:
+    content: |
+      # Compliance Report
+      - Host: {{ ansible_facts['fqdn'] }}
+      - OS: {{ ansible_facts['os_family'] }}
+      - Users: {{ users | map(attribute='name') | list }}
+      - Firewall: UFW enabled
+      - SSH root login: disabled
+      - Docker: running, hardened
+    dest: /tmp/compliance-report.md

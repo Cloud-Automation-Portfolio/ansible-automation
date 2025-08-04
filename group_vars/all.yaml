@@ -1,0 +1,22 @@
+# group_vars/all.yml
+
+# List of secure users to create (customize with your real SSH key!)
+users:
+  - name: devops
+    groups: sudo
+    ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA - YOUR-REAL-KEY-HERE"
+
+# You can add more users like this:
+#  - name: admin
+#    groups: sudo
+#    ssh_key: "ssh-ed25519 AAAAC3Nza..."
+
+# Security options for expansion (optional)
+firewall_allowed_ports:
+  - 22
+  # - 80
+  # - 443
+
+timezone: "UTC"
+
+# You can add other group-wide variables here for your playbooks.

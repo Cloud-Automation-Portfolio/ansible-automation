@@ -1,0 +1,38 @@
+- name: Install Docker securely
+  apt:
+    name: docker.io
+    state: present
+
+- name: Ensure Docker group exists
+  group:
+    name: docker
+
+- name: Add user to Docker group
+  user:
+    name: devops
+    groups: docker
+    append: yes
+
+- name: Pull and run secure nginx container
+  docker_container:
+    name: secure-nginx
+    image: nginx:alpine
+    state: started
+    restart_policy: always
+    user: "1000:1000"
+    published_ports:
+      - "8080:80"
+
+- name: Install Trivy for image scanning
+  shell: |
+    curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
+  args:
+    creates: /usr/local/bin/trivy
+
+- name: Scan Nginx container image
+  shell: trivy image nginx:alpine
+  register: trivy_scan
+
+- name: Show Trivy scan output
+  debug:
+    var: trivy_scan.stdout_lines

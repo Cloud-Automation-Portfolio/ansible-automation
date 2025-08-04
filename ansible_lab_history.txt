@@ -1,0 +1,9 @@
+    1  sudo apt update
+    2  sudo apt upgrade -y
+    3  ansible --version
+    4  sudo apt install ansible-core
+    5  ansible --version
+    6  sudo whoami
+    7  sudo nano /etc/ssh/sshd_config
+    8  sudo systemctl restart ssh
+    9  history > ansible_lab_step2_history.txt

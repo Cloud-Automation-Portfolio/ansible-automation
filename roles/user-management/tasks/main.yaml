@@ -1,0 +1,13 @@
+- name: Create secure users
+  user:
+    name: "{{ item.name }}"
+    groups: "{{ item.groups }}"
+    shell: /bin/bash
+    state: present
+  loop: "{{ users }}"
+
+- name: Add authorized SSH key
+  authorized_key:
+    user: "{{ item.name }}"
+    key: "{{ item.ssh_key }}"
+  loop: "{{ users }}"

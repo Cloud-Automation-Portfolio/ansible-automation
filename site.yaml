@@ -1,0 +1,8 @@
+- hosts: secure-servers
+  become: true
+  roles:
+    - secure-provision
+    - patching
+    - user-management
+    - container-hardening
+    - compliance-report
