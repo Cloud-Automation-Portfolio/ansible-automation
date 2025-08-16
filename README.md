@@ -19,7 +19,7 @@ Automated lab to provision, secure, patch and harden Linux servers and container
   - [5. Automated OS Patching]
   - [6. Secure User Management]
   - [7. Cleanup]
-[Bonuses](#bonuses)
+- [Bonuses](#bonuses)
   - [1.1 Container Hardening]
   - [1.2 Docker CIS Bench Security Scan]
 - [Screenshots](#screenshots)
