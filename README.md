@@ -18,9 +18,10 @@ Automated lab to provision, secure, patch and harden Linux servers and container
   - [4. Security Baseline Automation]
   - [5. Automated OS Patching]
   - [6. Secure User Management]
-  - [7. Container Hardening]
-  - [8. Docker CIS Bench Security Scan]
-  - [9. Cleanup]
+  - [7. Cleanup]
+[Bonuses](#bonuses)
+  - [1.1 Container Hardening]
+  - [1.2 Docker CIS Bench Security Scan]
 - [Screenshots](#screenshots)
 - [Lessons Learned](#lessons-learned)
 - [Notes and Limitations](#notes-and-limitations)
@@ -80,7 +81,7 @@ Automating security baselines is crucial for protecting production environments,
 
 **2. Ansible Install & Environment Prep**
    - Connected via SSH using secure key auth.
-   - Installed Ansible, updated OS, and validated the control node *(Screenshots: `ssh-login-success.png` & `ansible-version.png`)
+   - Installed Ansible, updated OS, and validated the control node *(Screenshots: `ssh-login-success.png` & `ansible-version.png`)*
 
 **3. Project & Inventory Setup**
    - Built modular Ansible project structure with roles for each security domain.
@@ -100,17 +101,21 @@ Automating security baselines is crucial for protecting production environments,
    - Automated creation of privileged users with SSH keys (no passwords)
    - Removed default/guest/test users *(Screenshots: `user-key-verification.png` & `user-mgmt-output.png`)*
 
-**7. Container Hardening**
+**7. Cleanup**
+   - Deleted resource group in Azure to avoid lingering costs *(Screenshot: `azure-rg-delete.png`)*
+     
+---
+
+## Bonuses
+
+**1.1 Container Hardening**
    - Automated Docker CE install from the official repo.
    - Enforced secure Docker daemon config (user namespaces, disabled legacy APIs)
-   - Added user to docker group securely *(Screenshot: `container-hardening-output.png`)
+   - Added user to docker group securely *(Screenshot: `container-hardening-output.png`)*
 
-**8. Docker CIS Bench Security Scan**
+**1.2 Docker CIS Bench Security Scan**
    - Automated cloning of Docker Bench for Security.
    - Ran CIS benchmark checks for Docker hardening validation *(Screenshot: `docker-bench-summary.png`)*
-
-**9. Cleanup**
-   - Deleted resource group in Azure to avoid lingering costs *(Screenshot: `azure-rg-delete.png`)*
 
 ---
 
@@ -136,9 +141,10 @@ Automating security baselines is crucial for protecting production environments,
 | 5    | patching-verification-phased.png | Ubuntu phased update verification                       |
 | 6    | user-key-verification.png        | User SSH key verification                               |
 | 6    | user-mgmt-output.png             | Ansible user management output                          |
-| 7    | container-hardening-output.png   | Docker install & hardening playbook output              |
-| 8    | docker-bench-summary.png         | Docker Bench for Security (CIS) scan output             |
-| 9    | azure-rg-delete.png              | Azure resource group deletion (cleanup)                 |
+| 7    | azure-rg-delete.png              | Azure resource group deletion (cleanup)                 |
+| 1.1  | container-hardening-output.png   | Docker install & hardening playbook output              |
+| 1.2  | docker-bench-summary.png         | Docker Bench for Security (CIS) scan output             |
+
 
 ---
 
