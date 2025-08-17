@@ -145,7 +145,6 @@ Automating security baselines is crucial for protecting production environments,
 | 1.1  | container-hardening-output.png   | Docker install & hardening playbook output              |
 | 1.2  | docker-bench-summary.png         | Docker Bench for Security (CIS) scan output             |
 
-
 ---
 
 ## Lessons Learned
